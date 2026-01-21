@@ -10,6 +10,7 @@ interface AutoPlayVideoProps {
   poster?: string;
   className?: string;
   isCurrentSlide?: boolean;
+  index?: number;
 }
 
 export const AutoPlayVideo: React.FC<AutoPlayVideoProps> = ({
@@ -17,6 +18,7 @@ export const AutoPlayVideo: React.FC<AutoPlayVideoProps> = ({
   poster,
   className = '',
   isCurrentSlide = true,
+  index,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const isVisible = useIntersectionObserver(videoRef, { threshold: 0.5 });
@@ -29,7 +31,7 @@ export const AutoPlayVideo: React.FC<AutoPlayVideoProps> = ({
         ref={videoRef}
         src={src}
         poster={poster}
-        className="auto-play-video__element"
+        className={`auto-play-video__element ${index === 0 ? 'auto-play-video__element--first' : ''}`}
         loop
         muted
         playsInline

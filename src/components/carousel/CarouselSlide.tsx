@@ -70,7 +70,7 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, curr
     >
       <div ref={mediaRef} className="carousel-slide__media">
         {slide.videoUrl && (
-          <AutoPlayVideo src={slide.videoUrl} isCurrentSlide={index === currentSlide} />
+          <AutoPlayVideo src={slide.videoUrl} isCurrentSlide={index === currentSlide}  index={index} />
         )}
         
         {slide.imageUrl && !slide.videoUrl && (

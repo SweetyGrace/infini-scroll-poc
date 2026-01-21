@@ -10,6 +10,10 @@
     object-fit: cover;
     display: block;
     transform: translateZ(0);
+
+    &--first {
+      margin-top: 80px;
+    }
   }
 
   &__indicator {
