@@ -5,6 +5,7 @@ export interface CarouselSlideData {
   videoUrl?: string;
   imageUrl?: string;
   backgroundColor?: string;
+  isStaticPage?: boolean; // For slides that should be full static pages
 }
 
 export interface CarouselConfig {

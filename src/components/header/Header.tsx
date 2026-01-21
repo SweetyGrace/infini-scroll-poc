@@ -1,34 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Header.scss';
 
-export const Header: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+interface HeaderProps {
+  isVisible?: boolean;
+}
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY < lastScrollY) {
-        // Scrolling up - show header
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        // Scrolling down - hide header
-        setIsVisible(false);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollY]);
-
+export const Header: React.FC<HeaderProps> = ({ isVisible = true }) => {
   return (
     <header className={`header ${isVisible ? 'header--visible' : 'header--hidden'}`}>
       <div className="header__container">

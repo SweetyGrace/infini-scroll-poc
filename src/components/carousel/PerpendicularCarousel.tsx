@@ -18,15 +18,40 @@ if (typeof window !== 'undefined') {
 interface PerpendicularCarouselProps {
   slides: CarouselSlideData[];
   autoPlay?: boolean;
+  onScroll?: (scrollY: number, direction: 'up' | 'down') => void;
 }
 
 export const PerpendicularCarousel: React.FC<PerpendicularCarouselProps> = ({
   slides,
   autoPlay = false,
+  onScroll,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { currentIndex, scrollToIndex } = useScrollSnap(containerRef);
   const [progress, setProgress] = useState(0);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const currentScrollY = container.scrollTop;
+      const direction = currentScrollY > lastScrollY.current ? 'down' : 'up';
+      
+      if (onScroll) {
+        onScroll(currentScrollY, direction);
+      }
+      
+      lastScrollY.current = currentScrollY;
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+    };
+  }, [onScroll]);
 
   useEffect(() => {
     const totalSlides = slides.length;

@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from 'react';
 import { CarouselSlideData } from '@/types/carousel.types';
 import { AutoPlayVideo } from '@/components/video/AutoPlayVideo';
+import { HorizontalCarousel } from './HorizontalCarousel';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { gsap } from 'gsap';
 import './CarouselSlide.scss';
@@ -19,7 +20,7 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index }) =>
   const isVisible = useIntersectionObserver(slideRef, { threshold: 0.3 });
 
   useEffect(() => {
-    if (!contentRef.current || !mediaRef.current) return;
+    if (slide.isStaticPage || !contentRef.current || !mediaRef.current) return;
 
     if (isVisible) {
       // Animate content in
@@ -43,7 +44,21 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index }) =>
       gsap.set(contentRef.current, { opacity: 0, y: 30 });
       gsap.set(mediaRef.current, { opacity: 0.7, scale: 1.05 });
     }
-  }, [isVisible]);
+  }, [isVisible, slide.isStaticPage]);
+
+  // Static page slide (like horizontal carousel)
+  if (slide.isStaticPage) {
+    return (
+      <div 
+        ref={slideRef}
+        className="carousel-slide carousel-slide--static"
+        style={{ backgroundColor: slide.backgroundColor || '#ffffff' }}
+        data-slide-index={index}
+      >
+        <HorizontalCarousel />
+      </div>
+    );
+  }
 
   return (
     <div 

@@ -19,8 +19,8 @@ export const sampleSlides: CarouselSlideData[] = [
     id: '2',
     title: 'The Datejust Collection',
     description: 'Classic elegance meets modern precision',
-    backgroundColor: '#1a1a1a',
-    imageUrl: '/images/homepage-welcome-datejust-book-push_rolex_datejust_hero_v2.avif',
+    backgroundColor: '#ffffff',
+    isStaticPage: true,
   },
   {
     id: '3',
