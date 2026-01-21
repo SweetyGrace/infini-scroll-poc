@@ -39,9 +39,10 @@ export const useScrollSnap = (
         setIsScrolling(false);
 
         // Calculate current slide based on scroll position
+        // Highlight when slide is more than halfway visible
         const scrollTop = container.scrollTop;
         const slideHeight = container.clientHeight;
-        const newIndex = Math.round(scrollTop / slideHeight);
+        const newIndex = Math.floor(scrollTop / slideHeight + 0.5);
         
         if (newIndex !== currentIndex) {
           setCurrentIndex(newIndex);
