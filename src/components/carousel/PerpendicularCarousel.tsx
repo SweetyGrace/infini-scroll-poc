@@ -77,11 +77,11 @@ export const PerpendicularCarousel: React.FC<PerpendicularCarouselProps> = ({
         onNavigate={scrollToIndex}
       />
 
-      <CarouselProgress
+      {/* <CarouselProgress
         progress={progress}
         currentSlide={currentIndex}
         totalSlides={slides.length}
-      />
+      /> */}
     </>
   );
 };
