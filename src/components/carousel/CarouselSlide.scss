@@ -9,14 +9,12 @@
   justify-content: center;
   overflow: hidden;
 
-  // First slide - sits below header with padding, reduced height
+  // First slide - sticky overlay like slides 3-5
   &:nth-child(1) { 
     z-index: 1;
     padding-top: 80px;
-    height: auto;
-    min-height: 100vh;
-    min-height: 100dvh;
-    position: relative;
+    position: sticky;
+    top: 0;
     
     @media (max-width: 768px) {
       padding-top: 60px;
@@ -26,11 +24,24 @@
   // Stack remaining slides on top of each other - can go under header
   &:nth-child(2) { 
     z-index: 2;
+    position: sticky;
     top: 0;
   }
-  &:nth-child(3) { z-index: 3; }
-  &:nth-child(4) { z-index: 4; }
-  &:nth-child(5) { z-index: 5; }
+  &:nth-child(3) { 
+    z-index: 3;
+    position: sticky;
+    top: 0;
+  }
+  &:nth-child(4) { 
+    z-index: 4;
+    position: sticky;
+    top: 0;
+  }
+  &:nth-child(5) { 
+    z-index: 5;
+    position: sticky;
+    top: 0;
+  }
 
   // Static page slides (non-scrollable content)
   &--static {

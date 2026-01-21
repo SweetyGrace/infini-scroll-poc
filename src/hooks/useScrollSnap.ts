@@ -35,19 +35,19 @@ export const useScrollSnap = (
       setIsScrolling(true);
       clearTimeout(scrollTimeout);
 
+      // Calculate current slide based on scroll position immediately
+      // Highlight when slide is more than halfway visible
+      const scrollTop = container.scrollTop;
+      const slideHeight = container.clientHeight;
+      const newIndex = Math.floor(scrollTop / slideHeight + 0.5);
+      
+      if (newIndex !== currentIndex) {
+        setCurrentIndex(newIndex);
+      }
+
       scrollTimeout = setTimeout(() => {
         setIsScrolling(false);
-
-        // Calculate current slide based on scroll position
-        // Highlight when slide is more than halfway visible
-        const scrollTop = container.scrollTop;
-        const slideHeight = container.clientHeight;
-        const newIndex = Math.floor(scrollTop / slideHeight + 0.5);
-        
-        if (newIndex !== currentIndex) {
-          setCurrentIndex(newIndex);
-        }
-      }, 150);
+      }, 50);
     };
 
     container.addEventListener('scroll', handleScroll, { passive: true });

@@ -11,9 +11,10 @@ import './CarouselSlide.scss';
 interface CarouselSlideProps {
   slide: CarouselSlideData;
   index: number;
+  currentSlide: number;
 }
 
-export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index }) => {
+export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, currentSlide }) => {
   const slideRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const mediaRef = useRef<HTMLDivElement>(null);
@@ -69,7 +70,7 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index }) =>
     >
       <div ref={mediaRef} className="carousel-slide__media">
         {slide.videoUrl && (
-          <AutoPlayVideo src={slide.videoUrl} />
+          <AutoPlayVideo src={slide.videoUrl} isCurrentSlide={index === currentSlide} />
         )}
         
         {slide.imageUrl && !slide.videoUrl && (

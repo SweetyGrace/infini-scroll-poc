@@ -92,7 +92,7 @@ export const PerpendicularCarousel: React.FC<PerpendicularCarouselProps> = ({
     <>
       <div ref={containerRef} className="perpendicular-carousel">
         {slides.map((slide, index) => (
-          <CarouselSlide key={slide.id} slide={slide} index={index} />
+          <CarouselSlide key={slide.id} slide={slide} index={index} currentSlide={currentIndex} />
         ))}
       </div>
 

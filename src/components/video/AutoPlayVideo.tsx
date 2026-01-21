@@ -9,16 +9,19 @@ interface AutoPlayVideoProps {
   src: string;
   poster?: string;
   className?: string;
+  isCurrentSlide?: boolean;
 }
 
 export const AutoPlayVideo: React.FC<AutoPlayVideoProps> = ({
   src,
   poster,
   className = '',
+  isCurrentSlide = true,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const isVisible = useIntersectionObserver(videoRef, { threshold: 0.1 });
-  const playbackState = useVideoPlayback(videoRef, isVisible);
+  const isVisible = useIntersectionObserver(videoRef, { threshold: 0.5 });
+  const shouldPlay = isVisible && isCurrentSlide;
+  const playbackState = useVideoPlayback(videoRef, shouldPlay);
 
   return (
     <div className={`auto-play-video ${className}`}>
@@ -31,11 +34,11 @@ export const AutoPlayVideo: React.FC<AutoPlayVideoProps> = ({
         muted
         playsInline
       />
-      {playbackState.isPlaying && (
+      {/* {playbackState.isPlaying && (
         <div className="auto-play-video__indicator">
           <span>Playing</span>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
