@@ -1,75 +1,78 @@
 .carousel-progress {
   position: fixed;
-  bottom: 40px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   z-index: 100;
-  padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
   border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  @media (max-width: 768px) {
+    bottom: 20px;
+    padding: 8px 16px;
+  }
 
   &__bar {
-    width: 200px;
-    height: 4px;
+    width: 150px;
+    height: 2px;
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
+    border-radius: 1px;
     overflow: hidden;
+
+    @media (max-width: 768px) {
+      width: 100px;
+    }
   }
 
   &__fill {
     height: 100%;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-    border-radius: 2px;
-    transition: width 0.3s ease-out;
+    background: white;
+    border-radius: 1px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &__counter {
     display: flex;
     align-items: baseline;
-    gap: 4px;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    gap: 3px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: white;
   }
 
   &__current {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   &__separator {
-    font-size: 16px;
-    font-weight: 400;
-    opacity: 0.6;
+    font-size: 14px;
+    font-weight: 300;
+    opacity: 0.5;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
   }
 
   &__total {
-    font-size: 16px;
-    font-weight: 400;
-    opacity: 0.8;
-  }
-}
+    font-size: 14px;
+    font-weight: 300;
+    opacity: 0.7;
 
-@media (max-width: 768px) {
-  .carousel-progress {
-    bottom: 20px;
-    padding: 10px 20px;
-
-    &__bar {
-      width: 120px;
-    }
-
-    &__current {
-      font-size: 20px;
-    }
-
-    &__separator,
-    &__total {
-      font-size: 14px;
+    @media (max-width: 768px) {
+      font-size: 12px;
     }
   }
 }
+

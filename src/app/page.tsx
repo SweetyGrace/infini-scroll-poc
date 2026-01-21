@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main>
       <FixedBackground />
-      <PerpendicularCarousel slides={sampleSlides} autoPlay={false} />
+      <PerpendicularCarousel slides={sampleSlides} autoPlay={true} />
     </main>
   );
 }

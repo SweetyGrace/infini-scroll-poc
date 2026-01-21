@@ -11,7 +11,7 @@ interface FixedBackgroundProps {
 
 export const FixedBackground: React.FC<FixedBackgroundProps> = ({
   imageUrl,
-  gradient = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  gradient = 'radial-gradient(circle at center, #1a1a1a 0%, #000000 100%)',
   className = '',
 }) => {
   return (

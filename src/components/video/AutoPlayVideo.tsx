@@ -17,7 +17,7 @@ export const AutoPlayVideo: React.FC<AutoPlayVideoProps> = ({
   className = '',
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const isVisible = useIntersectionObserver(videoRef, { threshold: 0.5 });
+  const isVisible = useIntersectionObserver(videoRef, { threshold: 0.1 });
   const playbackState = useVideoPlayback(videoRef, isVisible);
 
   return (
