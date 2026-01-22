@@ -7,19 +7,19 @@ import { sampleSlides } from '@/lib/carouselConfig';
 import { useState } from 'react';
 
 export default function Home() {
-  const [headerVisible, setHeaderVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleCarouselScroll = (scrollY: number, direction: 'up' | 'down') => {
-    if (direction === 'down' && scrollY > 80) {
-      setHeaderVisible(false);
-    } else if (direction === 'up') {
-      setHeaderVisible(true);
+    if (scrollY > 50) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
     }
   };
 
   return (
     <main>
-      <Header isVisible={headerVisible} />
+      <Header isVisible={true} isScrolled={isScrolled} />
       <FixedBackground />
       <PerpendicularCarousel slides={sampleSlides} autoPlay={true} onScroll={handleCarouselScroll} />
     </main>

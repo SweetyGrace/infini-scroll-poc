@@ -4,6 +4,8 @@ import React, { useRef, useEffect } from 'react';
 import { CarouselSlideData } from '@/types/carousel.types';
 import { AutoPlayVideo } from '@/components/video/AutoPlayVideo';
 import { HorizontalCarousel } from './HorizontalCarousel';
+import ContentSection from '@/components/Expansion-slide';
+import { InfinitheismSlide } from '@/components/infinitheism-slide/InfinitheismSlide';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { gsap } from 'gsap';
 import './CarouselSlide.scss';
@@ -21,7 +23,7 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, curr
   const isVisible = useIntersectionObserver(slideRef, { threshold: 0.3 });
 
   useEffect(() => {
-    if (slide.isStaticPage || !contentRef.current || !mediaRef.current) return;
+    if (slide.isStaticPage || slide.isExpansion || slide.isInfinitheismSlide || !contentRef.current || !mediaRef.current) return;
 
     if (isVisible) {
       // Animate content in
@@ -45,7 +47,40 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, curr
       gsap.set(contentRef.current, { opacity: 0, y: 30 });
       gsap.set(mediaRef.current, { opacity: 0.7, scale: 1.05 });
     }
-  }, [isVisible, slide.isStaticPage]);
+  }, [isVisible, slide.isStaticPage, slide.isExpansion, slide.isInfinitheismSlide]);
+
+  // Infinitheism slide (What is infinitheism)
+  if (slide.isInfinitheismSlide) {
+    return (
+      <div 
+        ref={slideRef}
+        className="carousel-slide carousel-slide--infinitheism"
+        style={{ backgroundColor: slide.backgroundColor || '#ffffff' }}
+        data-slide-index={index}
+      >
+        <InfinitheismSlide />
+      </div>
+    );
+  }
+
+  // Expansion slide (ContentSection)
+  if (slide.isExpansion) {
+    return (
+      <div 
+        ref={slideRef}
+        className="carousel-slide carousel-slide--expansion"
+        data-slide-index={index}
+      >
+        <ContentSection
+          sectionClass={`section-${index}`}
+          imageSrc={slide.expansionImageSrc || slide.imageUrl || ''}
+          imageAlt={slide.expansionImageAlt || slide.title}
+          reverse={slide.expansionReverse || false}
+          backgroundColor={slide.backgroundColor || '#000'}
+        />
+      </div>
+    );
+  }
 
   // Static page slide (like horizontal carousel)
   if (slide.isStaticPage) {
@@ -64,7 +99,7 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, curr
   return (
     <div 
       ref={slideRef}
-      className="carousel-slide"
+      className={`carousel-slide ${slide.attachedToNext ? 'carousel-slide--attached' : ''}`}
       style={{ backgroundColor: slide.backgroundColor || '#000000' }}
       data-slide-index={index}
     >

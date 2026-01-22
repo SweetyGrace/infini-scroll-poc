@@ -74,7 +74,7 @@ export default function TeachingSlide() {
         <div className="teaching-slide__image-container">
           <img
             ref={imageRef}
-            src="/images/mahatria-slide-four.jpg" 
+            src="/images/group-images.jpeg"
             alt="Teaching"
             className="teaching-slide__image"
           />

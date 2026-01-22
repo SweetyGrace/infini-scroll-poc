@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-color: #ffffff !important;
 
   // First slide - sticky overlay like slides 3-5
   &:nth-child(1) { 
@@ -50,6 +51,12 @@
     top: 0;
   }
 
+  // Attached slides - scroll together with next slide
+  &--attached {
+    position: relative !important;
+    top: auto !important;
+  }
+
   &__media {
     position: absolute;
     top: 0;
@@ -62,6 +69,7 @@
     
     // Subtle scale for depth
     transform: scale(1.05);
+   
   }
 
   &__image {
