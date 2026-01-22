@@ -32,14 +32,14 @@ export const sampleSlides: CarouselSlideData[] = [
     imageUrl: '/images/mahatria-slide-three.jpg',
     // videoUrl: '/videos/playing.mp4',
   },
-  {
-    id: '4',
-    title: 'Motor Sports Heritage',
-    description: 'A legacy of excellence and endurance',
-    backgroundColor: '#141414',
-    imageUrl: '/images/mahatria-slide-four.jpg',
-    // imageUrl: '/images/homepage-motor-sports-endurance-cover.avif',
-  },
+  // {
+  //   id: '4',
+  //   title: 'Motor Sports Heritage',
+  //   description: 'A legacy of excellence and endurance',
+  //   backgroundColor: '#141414',
+  //   imageUrl: '/images/mahatria-slide-four.jpg',
+  //   // imageUrl: '/images/homepage-motor-sports-endurance-cover.avif',
+  // },
   // {
   //   id: '5',
   //   title: 'Craftsmanship Refined',
