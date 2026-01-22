@@ -82,11 +82,11 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, curr
           />
         )}
       </div>
-
+{/* 
       <div ref={contentRef} className="carousel-slide__content">
         <h2 className="carousel-slide__title">{slide.title}</h2>
         <p className="carousel-slide__description">{slide.description}</p>
-      </div>
+      </div> */}
 
       <div className="carousel-slide__overlay" />
     </div>

@@ -1,67 +1,22 @@
-.carousel-slide {
+.teaching-slide {
   width: 100%;
   height: 100vh;
   height: 100dvh;
-  position: sticky;
-  top: 0;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-color: #000000;
+  margin-top: 80px;
 
-  // First slide - sticky overlay like slides 3-5
-  &:nth-child(1) { 
-    z-index: 1;
-    padding-top: 80px;
-    position: sticky;
-    top: 0;
-    
-    @media (max-width: 768px) {
-      padding-top: 60px;
-    }
-  }
-  
-  // Stack remaining slides on top of each other - can go under header
-  &:nth-child(2) { 
-    z-index: 2;
-    position: sticky;
-    top: 0;
-  }
-  &:nth-child(3) { 
-    z-index: 3;
-    position: sticky;
-    top: 0;
-  }
-  &:nth-child(4) { 
-    z-index: 4;
-    position: sticky;
-    top: 0;
-  }
-  &:nth-child(5) { 
-    z-index: 5;
-    position: sticky;
-    top: 0;
-  }
-
-  // Static page slides (non-scrollable content)
-  &--static {
-    position: sticky;
-    overflow: visible;
-    top: 0;
-  }
-
-  &__media {
+  &__image-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
-    transform: translateZ(0);
-    will-change: transform;
-    
-    // Subtle scale for depth
-    transform: scale(1.05);
   }
 
   &__image {
@@ -69,7 +24,8 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transform: translateZ(0);
+    transform-origin: center center;
+    will-change: transform;
   }
 
   &__overlay {
@@ -80,9 +36,9 @@
     height: 100%;
     // background: linear-gradient(
     //   to bottom,
-    //   rgba(0, 0, 0, 0.2) 0%,
-    //   rgba(0, 0, 0, 0.4) 50%,
-    //   rgba(0, 0, 0, 0.6) 100%
+    //   rgba(0, 0, 0, 0.3) 0%,
+    //   rgba(0, 0, 0, 0.5) 50%,
+    //   rgba(0, 0, 0, 0.7) 100%
     // );
     z-index: 2;
     pointer-events: none;
@@ -95,8 +51,6 @@
     padding: 0 60px;
     text-align: center;
     color: #ffffff;
-    opacity: 0;
-    transform: translateY(30px);
     
     @media (max-width: 768px) {
       padding: 0 30px;
@@ -105,7 +59,7 @@
   }
 
   &__title {
-    font-size: clamp(36px, 6vw, 72px);
+    font-size: clamp(48px, 8vw, 96px);
     font-weight: 400;
     margin: 0 0 20px 0;
     line-height: 1.1;
@@ -113,17 +67,13 @@
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     
-    // Rolex-style elegant typography
-    text-transform: none;
-    
     @media (max-width: 768px) {
       margin-bottom: 16px;
-      letter-spacing: -0.02em;
     }
   }
 
   &__description {
-    font-size: clamp(16px, 2vw, 22px);
+    font-size: clamp(18px, 2.5vw, 28px);
     font-weight: 300;
     margin: 0;
     line-height: 1.5;
