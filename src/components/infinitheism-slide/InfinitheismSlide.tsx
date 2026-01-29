@@ -112,7 +112,7 @@ export const InfinitheismSlide: React.FC = () => {
             <img src="/images/ism.svg" alt="ism" />
           </div>
           <div className="infinitheism-slide__section-content">
-            <p>A group of people sharing one common belief is 'ism'. For example, a group of people who believe in Buddha's teachings are said to be followers of Buddh-ism.</p>
+            <p>A group of people sharing one common belief is &apos;ism&apos;. For example, a group of people who believe in Buddha&apos;s teachings are said to be followers of Buddh-ism.</p>
             <p>A group of people who believe growth is possible only in the materialistic realm are said to be on the path of material-ism.</p>
           </div>
         </div>
