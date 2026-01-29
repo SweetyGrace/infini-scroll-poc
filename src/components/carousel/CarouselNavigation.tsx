@@ -17,11 +17,12 @@ export const CarouselNavigation: React.FC<CarouselNavigationProps> = ({
             key={index}
             className={`carousel-navigation__dot ${
               index === currentSlide ? 'carousel-navigation__dot--active' : ''
-            } ${currentSlide === 0  || currentSlide === 2 ? 'carousel-navigation__dot--dark' : ''}`}
+            }`}
             onClick={() => onNavigate(index)}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
+        {/* ${currentSlide === 0  || currentSlide === 2 ? 'carousel-navigation__dot--dark' : ''} */}
       </div>
       
       {/* <div className="carousel-navigation__arrows">

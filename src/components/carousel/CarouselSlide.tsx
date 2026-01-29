@@ -5,7 +5,6 @@ import { CarouselSlideData } from '@/types/carousel.types';
 import { AutoPlayVideo } from '@/components/video/AutoPlayVideo';
 import { HorizontalCarousel } from './HorizontalCarousel';
 import ContentSection from '@/components/Expansion-slide';
-import { InfinitheismSlide } from '@/components/infinitheism-slide/InfinitheismSlide';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { gsap } from 'gsap';
 import './CarouselSlide.scss';
@@ -23,7 +22,7 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, curr
   const isVisible = useIntersectionObserver(slideRef, { threshold: 0.3 });
 
   useEffect(() => {
-    if (slide.isStaticPage || slide.isExpansion || slide.isInfinitheismSlide || !contentRef.current || !mediaRef.current) return;
+    if (slide.isStaticPage || slide.isExpansion || !contentRef.current || !mediaRef.current) return;
 
     if (isVisible) {
       // Animate content in
@@ -47,21 +46,7 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, curr
       gsap.set(contentRef.current, { opacity: 0, y: 30 });
       gsap.set(mediaRef.current, { opacity: 0.7, scale: 1.05 });
     }
-  }, [isVisible, slide.isStaticPage, slide.isExpansion, slide.isInfinitheismSlide]);
-
-  // Infinitheism slide (What is infinitheism)
-  if (slide.isInfinitheismSlide) {
-    return (
-      <div 
-        ref={slideRef}
-        className="carousel-slide carousel-slide--infinitheism"
-        style={{ backgroundColor: slide.backgroundColor || '#ffffff' }}
-        data-slide-index={index}
-      >
-        <InfinitheismSlide />
-      </div>
-    );
-  }
+  }, [isVisible, slide.isStaticPage, slide.isExpansion]);
 
   // Expansion slide (ContentSection)
   if (slide.isExpansion) {
@@ -73,8 +58,8 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, curr
       >
         <ContentSection
           sectionClass={`section-${index}`}
-          imageSrc={slide.expansionImageSrc || slide.imageUrl || ''}
-          imageAlt={slide.expansionImageAlt || slide.title}
+          imageSrc={slide.imageUrl || ''}
+          imageAlt={slide.title}
           reverse={slide.expansionReverse || false}
           backgroundColor={slide.backgroundColor || '#000'}
         />
@@ -117,11 +102,13 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, curr
           />
         )}
       </div>
-{/* 
+
       <div ref={contentRef} className="carousel-slide__content">
         <h2 className="carousel-slide__title">{slide.title}</h2>
-        <p className="carousel-slide__description">{slide.description}</p>
-      </div> */}
+        <p className={`carousel-slide__description ${slide.hasBulletPoints ? 'carousel-slide__description--bullets' : ''}`}>
+          {slide.description}
+        </p>
+      </div>
 
       <div className="carousel-slide__overlay" />
     </div>

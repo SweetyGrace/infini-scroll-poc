@@ -8,10 +8,8 @@ export interface CarouselSlideData {
   isStaticPage?: boolean; // For slides that should be full static pages
   attachedToNext?: boolean; // For slides that should scroll together with the next slide
   isExpansion?: boolean; // For expansion/content section slides
-  expansionImageSrc?: string; // Image for expansion section
-  expansionImageAlt?: string; // Alt text for expansion image
   expansionReverse?: boolean; // Reverse layout for expansion section
-  isInfinitheismSlide?: boolean; // For the what is infinitheism slide
+  hasBulletPoints?: boolean; // For descriptions with bullet points that need special alignment
 }
 
 export interface CarouselConfig {

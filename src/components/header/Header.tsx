@@ -13,30 +13,21 @@ export const Header: React.FC<HeaderProps> = ({ isVisible = true, isScrolled = f
   return (
     <header className={`header ${isVisible ? 'header--visible' : 'header--hidden'}`}>
       <div className="header__wrapper">
-        <div className="header__left">
-          <Link href="/teaching" className="header__link">
-            <span className="header__mahtria">Mahatria</span> teachings
+        <nav className="header__nav">
+          <Link href="/" className="header__link">HOME</Link>
+          <Link href="/methodology" className="header__link">METHODOLOGY</Link>
+          <Link href="/prespective" className="header__link">PRESPECTIVE</Link>
+          <Link href="/endorsement" className="header__link">ENDORSEMENT</Link>
+          
+          <Link href="/" className="header__logo" aria-label="LAMH">
+            <img src="/images/new_logo.png" alt="LAMH" className="header__logo-icon" />
           </Link>
-          <div className="header__link">
-            Connect with <span className="header__mahtria">Mahatria</span>
-          </div>
-        </div>
-
-        <div className="header__center">
-          <Link href="/" className="header__logo" aria-label="Infinitheism">
-            <img src="/images/pillar-dots.svg" alt="" className="header__dots" />
-            <img src="/images/infinitheism.svg" alt="Infinitheism" className={`header__logo-text ${isScrolled ? 'header__logo-text--hidden' : ''}`} />
-          </Link>
-        </div>
-
-        <div className="header__right">
-          <div className="header__link">
-            Seeker experiences
-          </div>
-          <div className="header__link">
-            Growth tools
-          </div>
-        </div>
+          
+          <Link href="/about-deepak" className="header__link">ABOUT DEEPAK</Link>
+          <Link href="/case-studies" className="header__link">CASE STUDIES</Link>
+          <Link href="/about-lamh" className="header__link">ABOUT LAMH</Link>
+          <Link href="/team-contact" className="header__link">TEAM & CONTACT</Link>
+        </nav>
       </div>
     </header>
   );

@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const handleCarouselScroll = (scrollY: number, direction: 'up' | 'down') => {
     if (scrollY > 50) {
@@ -19,9 +20,14 @@ export default function Home() {
 
   return (
     <main>
-      <Header isVisible={true} isScrolled={isScrolled} />
+      <Header isVisible={currentSlide === 0} isScrolled={isScrolled} />
       <FixedBackground />
-      <PerpendicularCarousel slides={sampleSlides} autoPlay={true} onScroll={handleCarouselScroll} />
+      <PerpendicularCarousel 
+        slides={sampleSlides} 
+        autoPlay={true} 
+        onScroll={handleCarouselScroll}
+        onSlideChange={setCurrentSlide}
+      />
     </main>
   );
 }

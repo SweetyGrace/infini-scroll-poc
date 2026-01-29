@@ -1,4 +1,4 @@
-import { CarouselConfig, CarouselSlideData } from '@/types/carousel.types';
+import { CarouselConfig, CarouselSlideData } from "@/types/carousel.types";
 
 export const defaultCarouselConfig: CarouselConfig = {
   slideDuration: 5000, // 5 seconds per slide
@@ -9,47 +9,46 @@ export const defaultCarouselConfig: CarouselConfig = {
 
 export const sampleSlides: CarouselSlideData[] = [
   {
-    id: '1',
-    title: 'Motor Sports Excellence',
-    description: 'Experience the thrill of endurance racing',
-    backgroundColor: '#000000',
+    id: "1",
+    title: "The Arrival | 17:45 ",
+    description:
+      'The Transition: A private chauffeur service in a [Model, e.g., BMW 7 Series] arrives at the guest’s residence. Inside, a curated "LAMH Prelude" playlist and a chilled silk-scented towel set the tone for the evening. ',
+    backgroundColor: "#000000",
     // videoUrl: '/videos/cup.mp4',
-    imageUrl: '/images/starting-slide.png',
+    imageUrl: "/images/first_image.png",
   },
   {
-    id: '2',
-    title: 'The Datejust Collection',
-    description: 'Classic elegance meets modern precision',
-    backgroundColor: '#ffffff',
-    imageUrl: '/images/section-two.svg',
-    attachedToNext: true, // Slide 3 attached to slide 2
-    // isStaticPage: true,
+    id: "2",
+    title: "The Golden Hour Reveal | 18:00 ",
+    description:
+      "The Exclusivity: As the public exits, the house becomes a private stage. Guests are welcomed with Vintage Champagne on the terrace, overlooking the klong as the sun sets a moment specifically designed for Tatler-level photography. ",
+    backgroundColor: "#000000",
+    imageUrl: "/images/second_image.png",
   },
   {
-    id: '3',
-    title: 'What is infinitheism',
-    description: 'Understanding ism, theism, and infinitheism',
-    backgroundColor: '#ffffff',
-    isInfinitheismSlide: true,
-    attachedToNext: true, // Slide 4 attached to slide 3
+    id: "3",
+    title: "The Narrated Journey | 18:30 ",
+    description: `The Storytelling: A private walk-through led by a Senior Curator. We bypass the standard script, focusing instead on the Art of the Disappearance and the architectural secrets of the six teak houses.`,
+    backgroundColor: "#000000",
+    imageUrl: "/images/third_image.png",
   },
   {
-    id: '4',
-    title: 'Motor Sports Heritage',
-    description: 'A legacy of excellence and endurance',
-    backgroundColor: '#000',
-    imageUrl: '/images/section-four.svg',
+    id: "4",
+    title: "A Gastronomic Homage",
+    description: `   • The Dinner: A bespoke menu at the Jim Thompson Private Dining Room.\n• The Pairing: A four-course Thai-Fusion menu designed by the executive chef, paired with Old World wines selected to complement the spice profiles.\n• The Table: Dressed in limited-edition Jim Thompson silk runners, illuminated by candlelight.`,
+    backgroundColor: "#000000",
+    imageUrl: "/images/fourth_image.png",
     // isExpansion: true,
-    expansionImageSrc: '/images/slide-four.jpg',
-    expansionImageAlt: 'Bespoke Interior',
     expansionReverse: true,
+    hasBulletPoints: true,
   },
   {
-    id: '5',
-    title: 'Craftsmanship Refined',
-    description: 'Where tradition meets innovation',
-    // backgroundColor: '#0d0d0d',
-    imageUrl: '/images/section-fiive.jpg',
+    id: "5",
+    title: "The Parting Keepsake | 21:30",
+    description:
+      "The Gift: Rather than a brochure, guests receive a hand-picked Jim Thompson Heritage Gift.",
+    backgroundColor: "#000000",
+    imageUrl: "/images/fifth_image.png",
     // videoUrl: '/videos/watch-video.mp4',
   },
 ];
