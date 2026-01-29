@@ -92,7 +92,7 @@ export const InfinitheismSlide: React.FC = () => {
           alt="What is infinitheism" 
           className="infinitheism-slide__title-img"
           loading="eager"
-          fetchpriority="high"
+          // fetchpriority="high"
         />
         <img 
           src="/images/line.svg" 
