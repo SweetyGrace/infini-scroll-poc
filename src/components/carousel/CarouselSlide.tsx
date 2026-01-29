@@ -103,7 +103,7 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, curr
         )}
       </div>
 
-      <div ref={contentRef} className="carousel-slide__content">
+      {/* <div ref={contentRef} className="carousel-slide__content">
         <h2 className="carousel-slide__title">{slide.title}</h2>
         {slide.hasBulletPoints ? (
           <div className="carousel-slide__description carousel-slide__description--bullets">
@@ -117,6 +117,10 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, curr
           </p>
         )}
       </div>
+        <p className={`carousel-slide__description ${slide.hasBulletPoints ? 'carousel-slide__description--bullets' : ''}`}>
+          {slide.description}
+        </p>
+      </div> */}
 
       <div className="carousel-slide__overlay" />
     </div>
