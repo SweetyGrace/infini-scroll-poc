@@ -105,9 +105,17 @@ export const CarouselSlide: React.FC<CarouselSlideProps> = ({ slide, index, curr
 
       <div ref={contentRef} className="carousel-slide__content">
         <h2 className="carousel-slide__title">{slide.title}</h2>
-        <p className={`carousel-slide__description ${slide.hasBulletPoints ? 'carousel-slide__description--bullets' : ''}`}>
-          {slide.description}
-        </p>
+        {slide.hasBulletPoints ? (
+          <div className="carousel-slide__description carousel-slide__description--bullets">
+            {slide.description.split('\n').map((line, idx) => (
+              line.trim() && <p key={idx} className="carousel-slide__bullet-item">{line}</p>
+            ))}
+          </div>
+        ) : (
+          <p className="carousel-slide__description">
+            {slide.description}
+          </p>
+        )}
       </div>
 
       <div className="carousel-slide__overlay" />
